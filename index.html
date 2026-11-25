@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Devanshi Sharma – Data Science & Web Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#11142a; --bg2:#181c3a; --ink:#f3efe6; --muted:#a9acc6; --line:rgba(243,239,230,.14);
+  --gold:#f2b84b; --teal:#5fd0c0; --card:rgba(24,28,58,.72);
+  --head:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif; --body:'Instrument Sans','Segoe UI',system-ui,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#11142a;}}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){--bg:#f4f1fa; --bg2:#e9e5f5; --ink:#1b1d3a; --muted:#565a7d; --line:rgba(27,29,58,.16); --gold:#b36b00; --teal:#087f73; --card:rgba(255,255,255,.78);}
+}
+:root[data-theme="dark"]{--bg:#11142a; --ink:#f3efe6;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 var(--body);overflow-x:hidden}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block}
+main,header,footer{position:relative;z-index:1}
+.wrap{max-width:1040px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px;gap:16px}
+nav b{font:800 1.15rem var(--head)}
+nav ul{display:flex;gap:clamp(12px,3vw,28px);list-style:none;margin:0;padding:0;overflow-x:auto}
+nav a{color:var(--muted);text-decoration:none;font-weight:500;font-size:.95rem;white-space:nowrap}
+nav a:hover,nav a:focus-visible{color:var(--gold)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:4px}
+.hero{min-height:calc(100svh - 60px);display:flex;align-items:center;padding:60px 0}
+h1{font:800 clamp(3rem,10vw,7.2rem)/.95 var(--head);letter-spacing:-.035em;margin:0 0 24px}
+h1 span{display:block;color:transparent;-webkit-text-stroke:2px var(--gold)}
+.role{font:500 clamp(1.1rem,2.4vw,1.5rem)/1.4 var(--head);color:var(--teal);min-height:2.1em;margin:0 0 20px}
+.role::after{content:"";display:inline-block;width:2px;height:1.1em;background:var(--teal);margin-left:4px;vertical-align:-.15em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lead{max-width:56ch;color:var(--muted);margin:0 0 32px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:13px 24px;border-radius:999px;font-weight:600;text-decoration:none;border:1.5px solid var(--gold);color:var(--ink);transition:background .2s,color .2s,transform .2s}
+.btn.main{background:var(--gold);color:#17142b}
+.btn:hover{transform:translateY(-2px);background:var(--gold);color:#17142b}
+.hint{position:absolute;right:clamp(20px,5vw,48px);bottom:28px;font-size:.85rem;color:var(--muted);max-width:26ch;text-align:right}
+section{padding:90px 0}
+h2{font:700 clamp(2rem,5vw,3.2rem)/1.05 var(--head);letter-spacing:-.02em;margin:0 0 36px}
+.panel{background:var(--card);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:18px;padding:clamp(22px,4vw,40px)}
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:36px}
+.about p{margin:0 0 14px;max-width:62ch}
+.stats{display:grid;gap:16px;align-content:start}
+.stat{border-left:3px solid var(--teal);padding-left:16px}
+.stat strong{display:block;font:800 1.9rem/1.1 var(--head);color:var(--gold)}
+.stat span{color:var(--muted);font-size:.95rem}
+.proj{display:grid;grid-template-columns:1fr 1.2fr;gap:30px;margin-bottom:22px}
+.proj h3{font:700 1.7rem/1.15 var(--head);margin:0 0 12px}
+.proj ul{margin:0;padding-left:1.1em}
+.proj li{margin-bottom:8px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.tag{border:1px solid var(--line);border-radius:999px;padding:4px 13px;font-size:.88rem;color:var(--muted)}
+.proj .tag{border-color:color-mix(in srgb,var(--teal) 50%,transparent);color:var(--teal)}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.skills h3{font:700 1.15rem var(--head);margin:0 0 12px;color:var(--gold)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.two h3{font:700 1.3rem var(--head);margin:0 0 14px}
+.two p{margin:0 0 12px;color:var(--muted)}
+.two p b{color:var(--ink);font-weight:600}
+.contact{text-align:left}
+.contact .big{font:800 clamp(1.4rem,4.6vw,3rem)/1.1 var(--head);color:var(--ink);text-decoration:none;word-break:break-all;border-bottom:3px solid var(--gold)}
+.contact .big:hover{color:var(--gold)}
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+footer{padding:36px 0 50px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+.rev{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.rev.in{opacity:1;transform:none}
+@media (max-width:760px){.about,.proj,.two{grid-template-columns:1fr}.hint{display:none}nav b{display:none}}
+@media (prefers-reduced-motion:reduce){.rev{opacity:1;transform:none;transition:none}.role::after{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<nav><div class="wrap"><b>Devanshi Sharma</b>
+<ul><li><a href="#about">About</a></li><li><a href="#projects">Projects</a></li><li><a href="#skills">Skills</a></li><li><a href="#more">Credentials</a></li><li><a href="#contact">Contact</a></li></ul></div></nav>
+
+<header class="hero"><div class="wrap">
+  <h1>Devanshi<span>Sharma</span></h1>
+  <p class="role" id="role" aria-label="Machine learning builder and web developer"></p>
+  <p class="lead">I’m a B.Tech Computer Science student in Gurugram who turns messy data into tools people can actually use, from price estimators to full web interfaces.</p>
+  <div class="btns"><a class="btn main" href="#projects">See my projects</a><a class="btn" href="#contact">Get in touch</a></div>
+</div>
+<div class="hint">The dots are data. The line is a regression that refits as they move. Move your cursor through them.</div>
+</header>
+
+<main>
+<section id="about"><div class="wrap rev">
+  <h2>About me</h2>
+  <div class="panel about">
+    <div>
+      <p>I’m in my second year at Dronacharya College of Engineering (2024–2028), studying Computer Science and Engineering. I like the full path from raw data to a working app: cleaning, modelling, then building the interface.</p>
+      <p>This summer I completed the Data Science &amp; AI track at IIT Jammu’s Summer School (10 June – 10 August 2026), run with I3C – IIT Jammu and Techible. It was project-based training in Python, data analysis, machine learning and visualization.</p>
+      <p>I practised preprocessing, EDA, feature encoding, model training, evaluation, cross-validation and hyperparameter tuning, and built three extra mini-projects: House Price Prediction, Employee Attrition Prediction and Heart Disease Prediction.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>472,325</strong><span>cleaned sales records in my largest dataset</span></div>
+      <div class="stat"><strong>3rd prize</strong><span>Techpreneur Hackathon</span></div>
+      <div class="stat"><strong>15 tools</strong><span>AI tools explored for research, design and development</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap rev">
+  <h2>Projects</h2>
+  <article class="panel proj">
+    <div><h3>Used Car Price Appraiser</h3>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Scikit-learn</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">Streamlit</span></div></div>
+    <ul>
+      <li>Machine learning app that estimates used-car prices from vehicle details and condition.</li>
+      <li>Cleaned and analysed 558,837 sales records, keeping 472,325 after cleaning, then applied target encoding and Linear Regression.</li>
+      <li>Built an interactive Streamlit app that generates price estimates.</li>
+    </ul>
+  </article>
+  <article class="panel proj">
+    <div><h3>Medical Insurance Premium Estimator</h3>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Scikit-learn</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">Streamlit</span></div></div>
+    <ul>
+      <li>Model that estimates insurance charges from age, BMI, smoking status and region.</li>
+      <li>Ran data cleaning and EDA, then used Polynomial Features with Linear Regression to capture nonlinear relationships.</li>
+      <li>Created an interactive Streamlit app for premium estimation.</li>
+    </ul>
+  </article>
+</div></section>
+
+<section id="skills"><div class="wrap rev">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="panel"><h3>Programming</h3><div class="tags"><span class="tag">Python</span><span class="tag">C++</span><span class="tag">Java</span></div></div>
+    <div class="panel"><h3>Data science</h3><div class="tags"><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span></div></div>
+    <div class="panel"><h3>Machine learning</h3><div class="tags"><span class="tag">Scikit-learn</span><span class="tag">Linear Regression</span><span class="tag">Logistic Regression</span><span class="tag">Decision Trees</span><span class="tag">Random Forest</span></div></div>
+    <div class="panel"><h3>Frontend</h3><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Bootstrap</span><span class="tag">Tailwind CSS</span><span class="tag">React</span></div></div>
+    <div class="panel"><h3>Backend and databases</h3><div class="tags"><span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">SQL</span><span class="tag">MongoDB</span></div></div>
+    <div class="panel"><h3>Tools</h3><div class="tags"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Streamlit</span><span class="tag">Google Colab</span></div></div>
+  </div>
+</div></section>
+
+<section id="more"><div class="wrap rev">
+  <h2>Credentials</h2>
+  <div class="two">
+    <div class="panel"><h3>Anthropic certifications, July 2026</h3>
+      <div class="tags"><span class="tag">Claude Code in Action</span><span class="tag">Claude Code 101</span><span class="tag">Claude Platform 101</span><span class="tag">Introduction to Subagents</span><span class="tag">Introduction to Claude Cowork</span><span class="tag">Introduction to Agent Skills</span><span class="tag">AI Fluency Framework &amp; Foundations</span></div></div>
+    <div class="panel"><h3>Hackathons</h3>
+      <p><b>Techpreneur Hackathon:</b> 3rd prize.</p>
+      <p><b>Code and Chaos Hackathon:</b> shortlisted among the top 50 teams.</p>
+      <p><b>Rethink Hackathon:</b> shortlisted among the top 25 of about 200 participants.</p></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap rev contact">
+  <h2>Let’s build something</h2>
+  <a class="big" href="mailto:sharmadevanshi30nov@gmail.com">sharmadevanshi30nov@gmail.com</a>
+  <div class="links">
+    <a class="btn main" href="https://www.linkedin.com/in/devanshisharma-engineer" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn" href="https://github.com/Devanshi-coding" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div></section>
+</main>
+<footer><div class="wrap">© 2026 Devanshi Sharma · Gurugram, Haryana</div></footer>
+
+<script>
+(function(){
+  // Typing role
+  var roles=['Machine learning builder','Streamlit app maker','Web developer','Data storyteller'];
+  var el=document.getElementById('role'),ri=0,ci=0,del=false;
+  var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(still){el.textContent=roles.join(' · ');}
+  else (function tick(){
+    var w=roles[ri];
+    el.textContent=w.slice(0,ci);
+    if(!del&&ci===w.length){del=true;return setTimeout(tick,1500);}
+    if(del&&ci===0){del=false;ri=(ri+1)%roles.length;}
+    ci+=del?-1:1;setTimeout(tick,del?35:70);
+  })();
+
+  // Reveal on scroll
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.rev').forEach(function(n){io.observe(n)});
+
+  // Moving background: drifting data points + live least-squares line
+  var cv=document.getElementById('bg'),cx=cv.getContext('2d'),W,H,dpr,pts=[],mouse={x:-999,y:-999};
+  var line={a:0,b:0},cs;
+  function colors(){cs=getComputedStyle(document.documentElement);return{gold:cs.getPropertyValue('--gold').trim(),teal:cs.getPropertyValue('--teal').trim(),ink:cs.getPropertyValue('--ink').trim()};}
+  var C=colors();
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){setTimeout(function(){C=colors()},50)});
+  function size(){dpr=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);
+    var n=Math.round(Math.min(110,W*H/14000));pts=[];
+    for(var i=0;i<n;i++){var x=Math.random()*W;pts.push({x:x,y:H*.75-x*H*.0004*(W/1000)*.9+(Math.random()-.5)*H*.5,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:1.4+Math.random()*2.2,hue:Math.random()<.25});}}
+  addEventListener('resize',size);size();
+  addEventListener('pointermove',function(e){mouse.x=e.clientX;mouse.y=e.clientY});
+  addEventListener('pointerleave',function(){mouse.x=mouse.y=-999});
+  function fit(){var n=pts.length,sx=0,sy=0,sxy=0,sxx=0;
+    for(var i=0;i<n;i++){var p=pts[i];sx+=p.x;sy+=p.y;sxy+=p.x*p.y;sxx+=p.x*p.x;}
+    var d=n*sxx-sx*sx;if(!d)return;var b=(n*sxy-sx*sy)/d,a=(sy-b*sx)/n;
+    line.a+=(a-line.a)*.06;line.b+=(b-line.b)*.06;}
+  function frame(t){
+    cx.clearRect(0,0,W,H);
+    for(var i=0;i<pts.length;i++){var p=pts[i];
+      var dx=p.x-mouse.x,dy=p.y-mouse.y,d2=dx*dx+dy*dy;
+      if(d2<22000&&d2>1){var f=(1-d2/22000)*.9,d=Math.sqrt(d2);p.vx+=dx/d*f*.25;p.vy+=dy/d*f*.25;}
+      p.vx*=.985;p.vy*=.985;
+      p.vx+=(Math.random()-.5)*.02;p.vy+=(Math.random()-.5)*.02;
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<-10)p.x=W+10;if(p.x>W+10)p.x=-10;if(p.y<-10)p.y=H+10;if(p.y>H+10)p.y=-10;}
+    fit();
+    // residual lines
+    cx.lineWidth=1;cx.globalAlpha=.16;cx.strokeStyle=C.teal;cx.beginPath();
+    for(var j=0;j<pts.length;j++){var q=pts[j];cx.moveTo(q.x,q.y);cx.lineTo(q.x,line.a+line.b*q.x);}
+    cx.stroke();
+    // points
+    for(var k=0;k<pts.length;k++){var s=pts[k];cx.globalAlpha=.75;cx.fillStyle=s.hue?C.gold:C.teal;cx.beginPath();cx.arc(s.x,s.y,s.r,0,6.283);cx.fill();}
+    // regression line
+    cx.globalAlpha=.9;cx.strokeStyle=C.gold;cx.lineWidth=2.5;cx.beginPath();cx.moveTo(0,line.a);cx.lineTo(W,line.a+line.b*W);cx.stroke();
+    cx.globalAlpha=1;
+    if(!still)requestAnimationFrame(frame);
+  }
+  if(still){for(var z=0;z<60;z++){fit();}}
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
